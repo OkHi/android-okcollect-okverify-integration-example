@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="io.okhi.developerqa">
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+  <application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.DeveloperQA">
+    <meta-data android:name="io.okhi.core.branch_id" android:value="" />
+    <meta-data android:name="io.okhi.core.client_key" android:value="" />
+    <meta-data android:name="io.okhi.core.environment" android:value="dev" />
+    <meta-data android:name="io.okhi.core.platform" android:value="android" />
+    <meta-data android:name="io.okhi.core.developer" android:value="okhi" />
+    <!-- Set custom default icon for OkVerify's foreground service -->
+    <meta-data android:name="io.okhi.android_background_geofencing.foreground_notification_icon" android:resource="@drawable/ic_notification_icon" />
+    <!-- Set custom default icon color for OkVerify's foreground service -->
+    <meta-data android:name="io.okhi.android_background_geofencing.foreground_notification_color" android:resource="@color/notification_icon_color" />
+    <activity android:name=".MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
+
+</manifest>
