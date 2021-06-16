@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private final OkHiConfig config = new OkHiConfig.Builder().withStreetView().build();
 
     // define a user
-    private final OkHiUser user = new OkHiUser.Builder("+254700110590").withFirstName("Julius").withLastName("Kiano").build();
+    private final OkHiUser user = new OkHiUser.Builder("+254712345678").withFirstName("Julius").withLastName("Kiano").build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
