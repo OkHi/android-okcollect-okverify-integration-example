@@ -21,6 +21,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,5 +42,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.okhi:android-core:v1.2.1-beta'
     implementation 'com.github.okhi:android-okcollect:v3.2.0'
-    implementation 'com.github.okhi:android-okverify:v1.3.1'
+    implementation 'com.github.okhi:android-okverify:v1.3.9'
 }
