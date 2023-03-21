@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private final OkHiConfig config = new OkHiConfig.Builder().withStreetView().build();
 
     // define a user
-    private final OkHiUser user = new OkHiUser.Builder("+254712345678").withFirstName("Julius").withLastName("Kiano").build();
+    private final OkHiUser user = new OkHiUser.Builder("+254700110590").withFirstName("Julius").withLastName("Kiano").build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,25 +67,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCreateAddressPress (View v) {
-        launchOkCollect();
+        okhi.requestEnableVerificationServices(new OkHiRequestHandler<Boolean>() {
+            @Override
+            public void onResult(Boolean result) {
+                if (result) {
+                    launchOkCollect();
+                }
+            }
+            @Override
+            public void onError(OkHiException exception) {
+                exception.printStackTrace();
+            }
+        });
+
     }
 
     private void launchOkCollect() {
-        boolean canStartOkCollect = canStartAddressVerification();
-        if (canStartOkCollect) {
-            // launch okcollect
-            okCollect.launch(user, new OkCollectCallback<OkHiUser, OkHiLocation>() {
-                @Override
-                public void onSuccess(OkHiUser user, OkHiLocation location) {
-                    showMessage("Address created "+user.getPhone()+" "+location.getId());
-                    startAddressVerification(user, location);
-                }
-                @Override
-                public void onError(OkHiException e) {
-                    showMessage("Error "+e.getMessage());
-                }
-            });
-        }
+        okCollect.launch(user, new OkCollectCallback<OkHiUser, OkHiLocation>() {
+            @Override
+            public void onSuccess(OkHiUser user, OkHiLocation location) {
+                showMessage("Address created "+user.getPhone()+" "+location.getId());
+                startAddressVerification(user, location);
+            }
+            @Override
+            public void onError(OkHiException e) {
+                showMessage("Error "+e.getMessage());
+            }
+
+            @Override
+            public void onClose() {
+                showMessage("User closed.");
+            }
+        });
     }
 
     private void startAddressVerification(OkHiUser user, OkHiLocation location) {
@@ -101,36 +114,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //handler class that extends OkHiRequestHandler
-    class Handler implements OkHiRequestHandler<Boolean> {
-        @Override
-        public void onResult(Boolean result) {
-            if (result) launchOkCollect();
-        }
-        @Override
-        public void onError(OkHiException exception) {
-            showMessage(exception.getMessage());
-        }
-    }
-
-    // Define a method you'll use to check if conditions are met to start address creation
-    private boolean canStartAddressVerification() {
-        Handler requestHandler = new Handler();
-        // Check and request user to enable location services
-        if (!OkHi.isLocationServicesEnabled(getApplicationContext())) {
-            okhi.requestEnableLocationServices(requestHandler);
-        } else if (!OkHi.isGooglePlayServicesAvailable(getApplicationContext())) {
-            // Check and request user to enable google play services
-            okhi.requestEnableGooglePlayServices(requestHandler);
-        } else if (!OkHi.isBackgroundLocationPermissionGranted(getApplicationContext())) {
-            // Check and request user to grant location permission
-            okhi.requestBackgroundLocationPermission("Hey we need location permissions", "Pretty please..", requestHandler);
-        } else {
-            return true;
-        }
-        return false;
-    }
-
     private void showMessage (String message) {
         Log.v("MainActivity", message);
     }
@@ -138,14 +121,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Pass permission results to okcollect
+        // Pass permission results to okhi
         okhi.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // Pass activity results results to okcollect
+        // Pass activity results results to okhi
         okhi.onActivityResult(requestCode, resultCode, data);
     }
 }
