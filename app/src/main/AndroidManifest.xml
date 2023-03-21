@@ -14,8 +14,8 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.DeveloperQA">
-    <meta-data android:name="io.okhi.core.branch_id" android:value="CMuprLQCdy" />
-    <meta-data android:name="io.okhi.core.client_key" android:value="25a2ab1a-eb97-495d-b06e-44dded68e5ad" />
+    <meta-data android:name="io.okhi.core.branch_id" android:value="" />
+    <meta-data android:name="io.okhi.core.client_key" android:value="" />
     <meta-data android:name="io.okhi.core.environment" android:value="sandbox" />
     <meta-data android:name="io.okhi.core.platform" android:value="android" />
     <meta-data android:name="io.okhi.core.developer" android:value="okhi" />
