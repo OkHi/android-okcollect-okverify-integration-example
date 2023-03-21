@@ -14,16 +14,16 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.DeveloperQA">
-    <meta-data android:name="io.okhi.core.branch_id" android:value="" />
-    <meta-data android:name="io.okhi.core.client_key" android:value="" />
-    <meta-data android:name="io.okhi.core.environment" android:value="dev" />
+    <meta-data android:name="io.okhi.core.branch_id" android:value="CMuprLQCdy" />
+    <meta-data android:name="io.okhi.core.client_key" android:value="25a2ab1a-eb97-495d-b06e-44dded68e5ad" />
+    <meta-data android:name="io.okhi.core.environment" android:value="sandbox" />
     <meta-data android:name="io.okhi.core.platform" android:value="android" />
     <meta-data android:name="io.okhi.core.developer" android:value="okhi" />
     <!-- Set custom default icon for OkVerify's foreground service -->
     <meta-data android:name="io.okhi.android_background_geofencing.foreground_notification_icon" android:resource="@drawable/ic_notification_icon" />
     <!-- Set custom default icon color for OkVerify's foreground service -->
     <meta-data android:name="io.okhi.android_background_geofencing.foreground_notification_color" android:resource="@color/notification_icon_color" />
-    <activity android:name=".MainActivity">
+    <activity android:name=".MainActivity" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
