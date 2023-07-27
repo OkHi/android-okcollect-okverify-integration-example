@@ -16,7 +16,7 @@
     android:theme="@style/Theme.DeveloperQA">
     <meta-data android:name="io.okhi.core.branch_id" android:value="" />
     <meta-data android:name="io.okhi.core.client_key" android:value="" />
-    <meta-data android:name="io.okhi.core.environment" android:value="sandbox" />
+    <meta-data android:name="io.okhi.core.environment" android:value="prod" />
     <meta-data android:name="io.okhi.core.platform" android:value="android" />
     <meta-data android:name="io.okhi.core.developer" android:value="okhi" />
     <!-- Set custom default icon for OkVerify's foreground service -->
