@@ -21,7 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,7 +39,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.github.OkHi:android-core:v1.7.3'
-    implementation 'com.github.OkHi:android-okcollect:v3.3.10'
-    implementation 'com.github.OkHi:android-okverify:v1.9.11'
+    implementation 'io.okhi.android:core:1.7.15'
+    implementation 'io.okhi.android:okcollect:3.3.20'
+    implementation 'io.okhi.android:okverify:1.9.31'
 }
